@@ -1,0 +1,57 @@
+/**
+ * Sass variables and functions.
+ *
+ * @package Postali Child
+ * @author Postali LLC
+ */
+
+// Breakpoints
+$desktop-full: 1920px;
+$desktop-lg: 1600px;
+$desktop-md: 1400px;
+$desktop: 1200px;
+$tab-land: 1024px;
+$tab-port: 820px;
+$phone: 600px;
+
+// Containers
+$container-max-width: $desktop-lg;
+$container-padding:30px;
+
+// Transitions
+$transition-speed:.3s;
+$transition-fast:.3s ease-in-ease-out;
+$transition-slow:.5s ease-in-ease-out;
+
+// Core Colors
+$blk: #000000;
+$white: #F2F1EF;
+$emerald: #082927;
+$sage: #2b4241;
+$tan: #e3e1dd;
+$lt-tan: #f2f1ef;
+$dk-tan: #bfb48f;
+$burgundy: #6b2737;
+$text-color: #021c1a;
+
+
+
+// Link Attributes
+// $link-color: $lt-red;
+// $link-hover-color: $grey;
+$link-transition-speed: .15s;
+$trans: 0.3s linear;
+
+// Typography
+$serif: 'Noto Serif', serif;
+$sans: 'Open Sans', sans-serif;
+$icomoon: 'Icomoon';
+
+// $body-font-family: $overpass;
+// $body-text-color: $dk-blue;
+$body-line-height: 130%;
+
+// Font Weight
+$normal: 400;
+$bold: 700; 
+$black: 900;

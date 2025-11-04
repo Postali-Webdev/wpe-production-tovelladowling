@@ -1,0 +1,777 @@
+/**
+ * Header Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+header {
+    background:#021C1A;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top:0;
+    
+    #header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 94%;
+
+        @include respond(desktop) {
+            height:96px;
+        }
+
+        @include respond(phone) {
+            padding:0 5% !important;
+        }
+
+        #header-top_left {
+            display: flex;
+            width: 25%;
+            justify-content: flex-start;
+
+            @include respond(desktop) {
+                width: 80%;
+            }
+
+            .custom-logo-link {
+                width: 100%;
+                height: auto;
+                display:flex;
+
+                .custom-logo {
+                    max-height: 74px;
+                    max-width: 340px;
+
+                    @include respond(phone) {
+                        max-width: 95%;
+                    }
+                }
+            }
+        }
+
+        #header-top_right {
+            #header-top_menu {
+                #menu-main-nav {
+                    list-style-type: none;
+                    display: flex;
+                    padding-bottom:0 !important;
+                    align-items: center;
+
+                    @include respond(desktop) {
+                        padding: 0 !important;
+                        top: 96px;
+                        background: $emerald;
+                        height: auto;
+                        position: absolute;
+                        left: 0;
+                        width: 100%;
+                        box-sizing: border-box;
+                        height: calc(100vh - 96px);
+                        overflow-y: scroll;
+                    }
+
+                    li {
+                        display: flex;
+                        margin-left:5px;
+                        position: relative;
+                        height: auto;
+                        position: relative;
+
+                        &:first-of-type {
+                            margin-left: 0;
+                        }
+
+                        .accordion-toggle {
+                            display:none;
+                        }
+                        
+                        &:not(.menu-item-search) {
+                            &.disable {
+                                opacity: 0.5;
+                                pointer-events: none;
+                            }
+                        }
+
+                        &.menu-item-search {
+                            margin-left: 25px;
+
+                            @include respond(desktop) {
+                                margin-left: 4%;
+                                margin-top: -20px;
+                                
+                                &::before {
+                                    display:none;
+                                }
+                            }
+
+                            @include respond(phone) {
+                                margin-left:7%;
+                                width:86%;
+                            }
+                        }
+
+                        @include respond(desktop) {
+                            display:flex;
+                            margin: 0;
+                            flex-wrap: wrap;
+                            border-bottom: none;
+                            padding-bottom: 0;
+                            padding: 10px 0;
+
+                            &::before {
+                                content:"";
+                                position: absolute;
+                                bottom:0;
+                                width:92%;
+                                left:4%;
+                                height:1px;
+                                background:#2B4241;
+                            }
+
+                            .accordion-toggle {
+                                position: absolute;
+                                top: 12px;
+                                right: 4%;
+                                z-index: 10;
+                                width: 40px;
+                                height: 40px;
+                                transition:$trans;
+                                display:flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                span {
+                                    color: $dk-tan;
+                                    font-size: 13px;
+                                    transition:$trans;
+                                }
+
+                                &.toggle-background {
+                                    transition:$trans;
+                                    
+                                    .toggle-rotate {
+                                        transform: rotate(180deg) !important;
+                                        transition:$trans;
+                                        top:0 !important;
+                                        position: relative;
+                                    }
+                                } 
+                            }                   
+                        }
+
+                        @include respond(phone) {
+                            &::before {
+                                width:86%;
+                                left:7%;
+                            }
+                        }
+
+                        &:first-of-type {
+                            margin-left:0;
+                        }
+
+                        &:hover, > a:focus ~, > a:focus-visible ~ {
+                            ul.sub-menu {
+                                display:block;
+                                z-index: 0;
+                                -webkit-animation: .3s ease 0s normal forwards 1 fadein;
+                                animation: .3s ease 0s normal forwards 1 fadein;
+
+                                @keyframes fadein{
+                                    0% { opacity:0; top:86px; }
+                                    100% { opacity:1; top:96px; }
+                                }
+
+                                @-webkit-keyframes fadein{
+                                    0% { opacity:0; top:86px; }
+                                    100% { opacity:1; top:96px; }
+                                }
+
+                                @include respond(desktop) {
+                                    -webkit-animation:none;
+                                    animation:none;
+                                }
+
+                                li {
+                                    a {
+                                        background:none;
+                                        color:$blk !important;
+
+                                        @include respond(desktop) {
+                                            color:$dk-tan;
+                                        }
+
+                                        &:hover {
+                                            color:$blk !important;
+
+                                            @include respond(desktop) {
+                                                color:$dk-tan;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            @include respond(desktop) {
+                                ul.sub-menu {
+                                    display:none;
+                                }
+                            }
+                        }
+
+                        &.consultation {
+                            margin-left: 25px;
+
+                            a {
+                                padding: 14px 30px !important;
+                                border-radius: 50px;
+                                font-family: $sans;
+                                text-transform: uppercase;
+                                font-size: 14px;
+                                font-weight: 700;
+                                background:$dk-tan;
+                                color:$emerald !important;
+
+                                &:hover {
+                                    background:$lt-tan;
+                                    color:$emerald !important;
+                                }
+                            }
+
+                            @include respond(desktop) {
+                                margin-left:4%;
+                                margin-top: 20px;
+                                
+                                &::before {
+                                    display:none;
+                                }
+                            }
+
+                            @include respond(phone) {
+                                margin-left:7%;
+                                width:86%;
+
+                                a {
+                                    width:100%;
+                                    justify-content: center;
+                                }
+                            }
+                        }
+
+                        &.current-menu-parent,
+                        &.current-menu-item,
+                        &.current-page-ancestor {
+                            a {
+                                color:$dk-tan;
+
+                                &:before {
+                                    right: 20px;
+                                    bottom: 0;
+                                    display:block !important;
+                                }
+
+                                @include respond(desktop) {
+                                    color:$dk-tan;
+                                    background:none;
+                                }
+
+                                &:before {
+                                    display:none;
+                                }
+                            }
+
+                            &:hover {
+                                a {
+                                    color:$dk-tan;
+                                }
+                                
+                                .sub-menu {
+                                    left:0;
+
+                                    .current_page_item {
+                                        a {
+                                            color:$blk !important;
+                                            background:$lt-tan;
+
+                                            &::after {
+                                                opacity:1;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        &.menu-item-has-children {
+                            a {
+                                padding-right: 30px !important;
+                            }
+
+                            &::after {
+                                content: "\e900";
+                                font-family: $icomoon;
+                                position: absolute;
+                                font-size: 10px;
+                                top: 50%;
+                                right: 12px;
+                                height:30px;
+                                z-index: 1;
+                                color:$dk-tan;
+                                transform: translateY(-5px);
+
+                                @include respond(desktop) {
+                                    display:none;
+                                }
+                            }
+                        }
+
+                        a {
+                            color:$white;
+                            padding:40px 16px;
+                            text-transform: none;
+                            font-size: 16px;
+                            font-family: $serif;
+                            font-weight:400;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            vertical-align: middle;
+                            transform: perspective(1px) translateZ(0);
+                            box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+                            position: relative;
+                            overflow: hidden;
+                            text-decoration: none !important;
+                            z-index: 1;
+
+                            @include respond(desktop-md) {
+                                padding:40px 5px;
+                            }
+
+                            @include respond(desktop) {
+                                padding:10px 4%;
+                                font-size: 22px;
+                                font-family: $serif;
+                                color:$white;
+                            }
+
+                            @include respond(phone) {
+                                padding:10px 7%;
+                            }
+
+                            &:hover {
+                                color:$dk-tan !important;
+                                &:before {
+                                    right: 20px;
+                                }
+                            }
+                            
+                            &:hover,
+                            &.current_page_item {
+                                color:$tan;
+                            }
+                        }
+
+                        ul.sub-menu {
+                            width: auto;
+                            white-space: nowrap;
+                            transition: $trans;
+                            position: absolute;
+                            overflow: visible;
+                            background: $lt-tan;
+                            z-index: 500;
+                            margin-top: 0;
+                            padding: 30px 20px;
+                            display: none;
+                            left: -50%;
+                            width: auto;
+
+                            @include respond(desktop) {
+                                position: relative;
+                                width: 100%;
+                                background: $tan;
+                                left: 0;
+                                padding: 0 3% !important;
+                                transition: none;
+                                margin-bottom: 0;
+                                top: 13px;
+                                box-sizing: border-box;
+                            }
+
+                            @include respond(phone) {
+                                padding: 0 6% !important;
+                            }
+                            
+                            li {
+                                display:block;
+                                margin: 0;
+                                padding: 0;
+                                height:auto;
+                                transition: $trans;
+
+                                @include respond(desktop) {
+                                    padding: 0;
+                                    border-bottom: none;
+
+                                    &::before {
+                                        display:none;
+                                    }
+
+                                    &:first-of-type {
+                                        margin-top: 30px;
+                                    }
+
+                                    &:last-of-type {
+                                        margin-bottom: 30px;
+                                    }
+                                }
+
+                                a {
+                                    font-family: $serif;
+                                    font-size: 16px;
+                                    text-transform: none;
+                                    letter-spacing: 0;
+                                    transition: $trans;
+                                    padding: 8px 70px 8px 15px !important;
+                                    line-height: 150%;
+                                    color:$emerald;
+                                    font-weight:400;
+
+                                    &::after {
+                                        content:"\e901";
+                                        font-family: $icomoon;
+                                        position: absolute;
+                                        right:18px;
+                                        color:$emerald;
+                                        top:50%;
+                                        transform:translateY(-50%);
+                                        font-size: 11px;
+                                        opacity:0;
+                                        transition: $trans;
+                                    }
+
+                                    &:hover {
+                                        background:$white;
+
+                                        @include respond(desktop) {
+                                            background:$lt-tan;
+                                        }
+
+                                        &::after {
+                                            opacity:1;
+                                            right:13px;
+                                        }
+                                    }
+
+                                    @include respond(desktop) {
+                                        font-size:18px;
+                                        padding-left:20px;
+                                    }
+                                    
+                                }
+
+                                &.current-menu-item {
+                                    a {
+                                        color:$white;
+                                        transition:.3s ease all;
+                                        @include respond(desktop) {
+                                            color:$blk;
+                                        }
+                                    }
+                                }
+                            }
+                            &:hover li.menu-item-has-children {
+                                color:$white;
+                            }
+                        }
+                    }
+                    @include respond(desktop) {
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+
+    #header-top_mobile {
+        display:none;
+
+        @include respond(desktop) {
+            display: block;
+            position: absolute;
+            top: 35px;
+            right: 25px;
+
+            #menu-icon {
+                width: 40px;
+                height: 25px;
+                position: relative;
+                display: block;
+                margin-top: 0;
+                margin-right: 0;
+
+                .line {
+                    display: block;
+                    background:$white;
+                    width: 40px;
+                    height: 1px;
+                    position: absolute;
+                    left: 0;
+                    transition: all 0.4s;
+                    -webkit-transition: all 0.4s;
+                    -moz-transition: all 0.4s;
+
+                    &.line-1 {
+                        top: 0;
+                    }
+
+                    &.line-2 {
+                        top: 50%;
+                    }
+
+                    &.line-3 {
+                        top: 100%;
+                    }
+                }
+
+                &.active {
+                    .line-1 {
+                        transform: translateY(12px) translateX(0) rotate(45deg);
+                        -webkit-transform: translateY(12px) translateX(0) rotate(45deg);
+                        -moz-transform: translateY(12px) translateX(0) rotate(45deg);
+                    }
+
+                    .line-2 {
+                        opacity: 0;
+                    }
+                    
+                    .line-3 {
+                        transform: translateY(-12px) translateX(0) rotate(-45deg);
+                        -webkit-transform: translateY(-12px) translateX(0) rotate(-45deg);
+                        -moz-transform: translateY(-12px) translateX(0) rotate(-45deg);
+                    }
+                }
+            }
+        }
+    }
+
+
+    #head-mobile {
+        display:none;
+
+        @include respond(desktop) {
+            display:block;
+        }
+    }
+    //nav searchbar
+    .navbar-form-search {
+        position: relative;
+        z-index: 10;
+
+        @include respond(desktop) {
+            width:230px;
+        }
+
+        @include respond(phone) {
+            width:100%;
+        }
+        
+        .icon-magnifying-glass:before, .icon-close-x:before {
+            content: "\e904";
+            font-family: $icomoon;
+            position: absolute;
+            top: 9px;
+            left: -9px;
+            transition: 0.3s linear;
+            -webkit-transition: 0.3s linear;
+            z-index: 10;
+            color: $white;
+            font-size: 20px;
+            font-weight: $normal;
+            width: 20px;
+            height: 20px;
+            background-repeat: no-repeat;
+            background-size: contain;
+
+            @include respond(desktop) {
+                left: 5px;
+                top: calc(50% - 10px);
+                color:$white;
+                font-size: 15px;
+            }
+        }
+
+        .icon-close-x:before {
+            content:"\e905";
+            font-family: $icomoon;
+            color:$blk;
+        }
+        
+        .form-control {
+            width: 225px;
+            padding: 6px;
+            font-size: 16px;
+            border: 0;
+            font-family: $serif;
+
+            @include respond(desktop) {
+                width:100%;
+                background:$sage;
+                color:$white;
+                font-family: $sans;
+                margin-top: -3px;
+                margin-left: 9px;
+                box-sizing: border-box;
+            }
+        }
+        .btn {
+            border: 0;
+            background: transparent;
+            font-size: 1.8rem;
+            padding:0;
+            cursor: pointer;
+            &:active,
+            &:hover,
+            &:focus {
+                color: #000;
+                outline: none;
+                box-shadow: none;
+            }
+            span {
+                color:$blk;
+                font-weight: bold;
+            }
+        }
+
+        .btn-search {
+            height:42px;
+            border-radius: 0 10px 10px 0;
+            background:$white;
+            padding:8px;
+            position: relative;
+            top: 0;
+            right: -5px;
+            border:none;
+            width:20px;
+            span {
+                color:$white;
+            }
+        }
+        
+        .search-form-container {
+            text-align: right;
+            position: absolute;
+            width: 270px;
+            overflow: hidden;
+            background: $white;
+            right: 11px;
+            top: 0;
+            z-index: 9;
+            transition: all .3s ease-in-out;
+            border-radius: 10px 0 0 10px;
+
+            @include respond(desktop) {
+                width:230px;
+                left:0;
+                right: auto;
+                top:15px;
+                border-radius: 50px;
+                background: $sage;
+            }
+
+            &.hdn {
+                width: 0;
+                @include respond(desktop) {
+                    width:230px;
+                    border:1px solid $white;
+                }
+
+                @include respond(phone) {
+                    width:100%;
+                }
+
+                & ~ .btn-search {
+                    height:42px;
+                    border-radius: 0 10px 10px 0;
+                    background: unset;
+                    padding:8px;
+                    top:0;
+                    width:20px;
+                    
+                    &:hover {
+                        .icon-magnifying-glass:before {
+                            color: $white;
+                        }
+                    }
+
+                    @include respond(desktop) {
+                        width: auto;
+                        height: 34px;
+                        background: $sage;
+                        padding: 0px;
+                        position: absolute;
+                        z-index: 80;
+                        right: 2px;
+                        top: 20px;
+                        width: 35px;
+                        border-radius: 50%;
+                        border: none;
+
+                        span {
+                            color:$white !important;
+                        }
+
+                        .icon-magnifying-glass:before {
+                            color: $white;
+                        }
+                    }
+
+                    span {
+                        color:$blk;
+                    }
+                }
+            }
+            .search-input-group {
+                width: 270px;
+                display: flex;
+                padding: 5px;
+                height:32px;
+
+                @include respond(desktop) {
+                    width:100%;
+                    box-sizing: border-box;
+                    height: 40px;
+                }
+
+                .form-group {
+                    @include respond(desktop) {
+                        width:100%;
+                    }
+                }
+
+                .btn {
+                    border: 0;
+                    background: $white;
+                    font-size: 1.6rem;
+                    padding: 4px 8px 0;
+                    border-radius: 5px 0 0 5px;
+                    height: 32px;
+                    @include respond(desktop) {
+                        display:none;
+                    }
+                    span {
+                        color:$white;
+                    }
+                }
+            }
+        }
+    }
+
+    .breadcrumb-block {
+        background:$emerald;
+        position: relative;
+        z-index: 0;
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.3);
+    }
+}

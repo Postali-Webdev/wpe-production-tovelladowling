@@ -1,0 +1,170 @@
+/**
+ * Footer Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+footer {
+    position: relative;
+    z-index: 5;
+    
+    .footer {
+        background:#fff !important;
+        padding-bottom: 20px !important;
+        
+        .container {
+            max-width: 94%;
+        }
+        
+        .custom-logo-link {
+            display: flex;
+            max-width: 350px;
+            height: auto;
+            width: 100%;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 0;
+            
+            span {
+                font-family: $sans;
+                font-weight: 900;
+                color: $dk-tan;
+                width:20px;
+                display:inline-block;
+            }
+
+            &.footer-social {
+                display:flex;
+                
+                a {
+                    display:flex;
+                    align-items: center;
+                    font-size: 14px;
+                    font-family: $serif;
+                    color:$emerald;
+                }
+                
+                span {
+                    color: $white !important;
+                    display: flex;
+                    height: 30px;
+                    width: 30px;
+                    background: $emerald;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                    transition:$trans;
+
+                    &:hover {
+                        background:$dk-tan !important;
+                    }
+                }
+            }
+        }
+
+        .footer-main-contact {
+            @include respond(tab-port) {
+                margin-bottom: 50px;
+            }
+        }
+
+        .column-66.locations {
+            justify-content: space-between;
+
+            .column-33 {
+                @include respond(tab-port) {
+                    margin-bottom: 30px;
+                }
+            }
+
+            p.sans {
+                margin-bottom: 10px;
+            }
+
+            .location-address {
+                display: flex;
+                margin: 5px 0;
+
+                span {
+                    font-weight: 900;
+                    font-family: $sans;
+                    color: $dk-tan;
+                    width: 25px;
+                    display: block;
+                    font-size: 16px;
+                    margin-top: 8px;
+                }
+            }
+        }
+    }
+
+    .utility {
+        display: flex;
+        border-top: 1px solid lightgray;
+        margin: 60px 0 0;
+        padding-top: 15px;
+        align-items: center;
+
+        @include respond(tab-port) {
+            flex-wrap: wrap;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        ul#menu-footer-utility {
+            list-style-type: none;
+            display: flex;
+            margin:0;
+            padding:0;
+
+            @include respond(tab-port) {
+                margin-top: 10px;
+            }
+
+            @include respond(phone) {
+                display:block;
+            }
+
+            li {
+                margin-left: 10px;
+
+                @include respond(tab-port) {
+                    margin-left: 0;
+                    margin-right: 10px;
+                }
+
+                @include respond(phone) {
+                    padding:4px 0;
+                }
+
+                &:not(:last-of-type)::after {
+                    content: "|";
+                    position: relative;
+                    margin-left: 10px;
+                    font-weight: lighter;
+
+                    @include respond(phone) {
+                        display:none;
+                    }
+                }
+
+                a {
+                    font-family: $serif;
+                    text-decoration: underline;
+                    font-size: 14px;
+                    color:$blk;
+
+                    &:hover {
+                        color:$dk-tan;
+                    }
+                }
+            }
+        }
+    }
+}

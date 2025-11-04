@@ -1,0 +1,426 @@
+/**
+ * Template Front Page Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+.home {
+    .breadcrumb-block {
+        display:none;
+    }
+
+    .body-container {
+        margin-top: 95px;
+    }
+}
+
+#hp-header {
+    overflow-x: hidden;
+
+    h1 {
+        margin-bottom: 30px !important;
+        margin-top: 80px;
+
+        @include respond(tab-port) {
+            margin-top: 0;
+        }
+    }
+
+    p.subhead {
+        font-family: $sans;
+        font-size: 28px;
+        line-height: 130%;
+        font-weight: lighter;
+    }
+
+    .header-cta {
+        margin-top: 50px;
+
+        .separator {
+            width: 10px;
+            display: inline-block;
+
+            @include respond(phone) {
+                width:100%;
+                margin-top: 20px;
+                display: block;
+            }
+        }
+
+        @include learn-more;
+
+        .learn-more {
+            a {
+                display: inline-flex;
+                font-family: $serif;
+                align-items: center;
+                color: $white;
+                margin-left: 10px;
+                font-size: 16px;
+            }
+
+            &:hover {
+                a {
+                    color:$dk-tan;
+                }
+            }
+
+            @include respond(phone) {
+                margin-top: 20px;
+                width:100%;
+            }
+        }
+    }
+
+    .banner-slider {
+        width: 60%;
+        margin-right: -15%;
+        display:flex;
+
+        @include respond(tab-port) {
+            width: 100%;
+            margin-right: 0;
+            display: flex;
+            position: relative;
+            margin-top: 130px;
+        }
+
+        .slider-nav {
+            width: auto !important;
+            display: flex;
+            justify-content: space-between;
+            height:80%;
+            rotate:180deg;
+            align-items: center;
+            margin-right: 50px;
+
+            @include respond(tab-port) {
+                position: absolute;
+                top:0;
+                right:0;
+                margin: -90px 0 0 0;
+                rotate:0deg;
+                height:auto;
+            }
+
+            .prev-button-slick,
+            .next-button-slick {
+                background: $sage;
+                height: 60px;
+                width: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $dk-tan;
+                border-radius: 50%;
+                margin:0 5px;
+                transition:$trans;
+
+                &:hover {
+                    background:$dk-tan;
+                    color:$blk;
+                }
+            }
+        }
+
+        #attorney-slider {
+            display: grid;
+            margin-top: -20px;
+
+            a {
+                cursor:pointer;
+
+                &:hover {
+                    p.small {
+                        color:$dk-tan;
+                    }
+                }
+            }
+    
+            @include attorney-img;
+
+            .attorney-img {
+                box-shadow: none;
+
+                @include respond(desktop-md) {
+                    max-height: 460px;
+                }
+
+                @include respond(phone) {
+                    max-height: 600px;
+                    max-width: 300px !important;
+                    width: 90%;
+                }
+            }
+    
+            .attorney-slide {    
+                transition:trans;
+                text-align: center;
+                padding:15px 0;
+
+                .attorney-img {
+                    top: 0;
+                    max-width: 92%;
+                    margin:0 auto;
+
+                    @include respond(tab-port) {
+                        max-width: 240px;
+                    }   
+                }
+
+                p {
+                    margin-bottom: 0;
+
+                    &.small {
+                        text-decoration: none;
+                        transition: $trans;
+                    }
+                } 
+            }
+
+            .slick-slide {
+                @include respond(tab-port) {
+                    opacity:1;
+                }
+                
+                .name-title {
+                    opacity:0;
+
+                    .icon-arrow-right {
+                        &::before {
+                            color:$dk-tan;
+                            font-size: 12px;
+                            margin-left: 6px;
+                        }
+                    }
+                }
+
+                &.slick-active:not(.slick-active+.slick-active+.slick-active) {
+                    .attorney-img {
+                        box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.2);
+                    }
+                    
+                    .name-title {
+                        -webkit-animation: 1s ease 0s normal forwards 1 fadeInDrop;
+                        animation: 1s ease 0s normal forwards 1 fadeInDrop;
+                        -webkit-animation-delay: .6s;
+                                animation-delay: .6s;
+                        @keyframes fadeInDrop {
+                            0% { opacity:0; margin-top:-5px; }
+                            100% { opacity:1; margin-top:0; }
+                        }
+                        @-webkit-keyframes fadeInDrop {
+                            0% { opacity:0; margin-top:-5px; }
+                            100% { opacity:1; margin-top:0; }
+                        }
+                    }
+                }
+
+                &.nextSlide {
+                    .name-title {
+                        -webkit-animation: 1s ease 0s normal forwards 1 fadeInDrop;
+                        animation: 1s ease 0s normal forwards 1 fadeInDrop;
+                        -webkit-animation-delay: 0s;
+                                animation-delay: 0s;
+                        @keyframes fadeInDrop {
+                            0% { opacity:0; margin-top:-5px; }
+                            100% { opacity:1; margin-top:0; }
+                        }
+                        @-webkit-keyframes fadeInDrop {
+                            0% { opacity:0; margin-top:-5px; }
+                            100% { opacity:1; margin-top:0; }
+                        }
+                    }
+                }
+            }
+
+            .fadeIn {
+                -webkit-animation: 1s ease 0s normal forwards 1 fadeIn;
+                animation: 1s ease 0s normal forwards 1 fadeIn;
+                @keyframes fadeIn{
+                    0% { opacity:0; }
+                    100% { opacity:1; }
+                }
+                @-webkit-keyframes fadeIn{
+                    0% { opacity:0; }
+                    100% { opacity:1; }
+                }
+                
+                @include respond(tab-port) {
+                    -webkit-animation:none;
+                            animation:none;
+                }
+            }
+
+            .fadeOut {
+                -webkit-animation: 1s ease 0s normal forwards 1 fadeOut;
+                animation: 1s ease 0s normal forwards 1 fadeOut;
+                @keyframes fadeOut{
+                    0% { opacity:1; }
+                    100% { opacity:0; }
+                }
+                @-webkit-keyframes fadeOut{
+                    0% { opacity:1; }
+                    100% { opacity:0; }
+                }
+
+                @include respond(tab-port) {
+                    -webkit-animation:none;
+                            animation:none;
+                }
+            }
+
+            .prevSlide {
+                opacity:0;
+
+                @include respond(tab-port) {
+                    opacity:1;
+                }
+            }
+        }
+    }
+}
+
+#hp-who-we-are {  
+    .container {
+
+        .column-40 {
+            &.white {
+                p.small {
+                    a {
+                        font-weight: 400;
+                    }
+                }
+                
+                &::after {
+                    position: absolute;
+                    height: 100%;
+                    width: 100%;
+                    content: "";
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                    background-image: url(/wp-content/uploads/2023/04/bg-burgundy-texture.jpg);
+                    background-size: cover;
+                    opacity: 0;
+                    transition: 0.3s linear;
+                }
+
+                &:hover {
+                    @include reversed-fonts;
+
+                    &::after {
+                        opacity:1;
+                    }
+                }
+            }
+        }
+
+        @include respond(tab-port) {
+            padding:0 !important;
+        }
+    }
+    
+    @include learn-more;
+}
+
+#hp-practice-areas {
+    padding-top: 150px;
+
+    @include respond(tab-port) {
+        padding-top: 60px;
+    }
+    
+    .column-66 {
+        p {
+            max-width: 90%;
+
+            @include respond(tab-port) {
+                max-width:100%;
+            }
+        }
+
+        .btn {
+            margin-top: 30px;
+        }
+
+        @include respond(tab-port) {
+            margin-bottom: 50px;
+        }
+    }
+
+    @include green-box;
+
+}
+
+#hp-bottom {
+    padding-bottom: 120px;
+
+    @include respond(tab-port) {
+        padding-bottom:80px;
+    }
+    
+    .container {
+        @include respond(tab-port) {
+            padding:0 !important;
+        }
+    }
+
+    p.sans {
+        margin-bottom: 0;
+    }
+
+    .testimonial-slider {
+        p {
+            color:$white !important;
+        }
+    }
+
+    .nav-dots {
+        .slick-dots {
+            li {
+                button {
+                    &::before {
+                        color: $white;        
+                    }
+                }
+
+                &.slick-active {
+                    button {
+                        &::before {
+                            color: #fff;
+                            opacity: .75;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .photo {
+        background-size: cover;
+        background-position: center;
+        min-height: 425px;
+    }
+    
+    .cta-contact {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 10px;
+
+        @include respond(phone) {
+            flex-wrap: wrap;
+        }
+        
+        p {
+            margin-bottom: 0 !important;
+            margin-left: 15px;
+
+            @include respond(phone) {
+                width:100%;
+                margin:15px 0 0 0;
+            }
+        }
+    }
+}

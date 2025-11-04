@@ -1,0 +1,266 @@
+/**
+ * Web Font Styles, H Styles, Body Text Styles
+ *
+ * @package Postali Child
+ * @author Postali LLC
+**/
+
+/* Fonts */
+body, h1, h2, h3, h4, h5, h6, p, a, ul {
+    // color: $body-text-color;
+} 
+p, a, ul, ol {
+
+}
+ul li, ol li {
+    margin: 0 0 0 20px;
+    font-size: 18px;
+}
+dl, blockquote, img {
+
+}
+
+a {
+    text-decoration:none;
+    transition:$trans;
+    &:hover {
+        // color:$lt-red;
+        text-decoration:none;
+    }
+}
+
+.btn {
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    transition-property: color;
+    transition-duration: 0.3s;
+    padding: 15px 40px;
+    border-radius: 50px;
+    background:$tan;
+    overflow: hidden;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-family: $sans;
+
+    &::before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: $white;
+        transform: scaleX(0);
+        transform-origin: 0 50%;
+        transition-property: transform;
+        transition-duration: 0.3s;
+        transition-timing-function: ease-out;
+    }
+
+    &:hover {   
+        color: white;
+            
+        &::before {
+            transform: scaleX(1);
+        }
+    }
+
+    &.burgundy {
+        background:$burgundy;
+        color:$white;
+        font-family: $sans;
+        text-decoration: none;
+
+        &::before {
+            background:$tan;
+        }
+
+        &:hover {
+            color:$emerald;
+        }
+    }
+
+    &_reversed {
+        @extend .btn;
+        background:$dk-tan;
+        color:$text-color !important;
+
+        &:hover {
+            color:$emerald;
+        }
+    }
+}
+
+p {
+    font-size:18px;
+    line-height: 170%;
+    margin:0;
+    margin-bottom:20px;
+    color:$text-color;
+    font-family: $serif;
+    font-weight:400 !important;
+
+    strong {
+        font-weight: 900;
+    }
+
+    &.sans {
+        font-family: $sans;
+    }
+
+    &.caps {
+        text-transform: uppercase;
+    }
+
+    &.spaced {
+        letter-spacing: 2px;
+    }
+
+    &.spaced-lg {
+        letter-spacing: 5px;
+    }
+
+    &.large {
+        font-size: 30px;
+        line-height: 125%;
+
+        @include respond(desktop) {
+            font-size: 28px;
+        }
+    }
+
+    &.med {
+        font-size: 26px;
+        line-height: 125%;
+
+        @include respond(desktop) {
+            font-size: 24px;
+        }
+    }
+
+    &.small {
+        font-size: 16px;
+    }
+
+    &.xsmall {
+        font-size: 14px;
+    }
+    
+    &.thin {
+        width:66%;
+    }
+
+    &#breadcrumbs {
+        font-size: 12px;
+        color:$dk-tan;
+        padding:10px 0;
+        margin-bottom: 0;
+
+        .breadcrumb_last {
+            color:$white;
+        }
+
+        a {
+            color:$dk-tan;
+            text-decoration: underline;
+        }
+    }
+
+    a {
+        font-family: inherit;
+        color: inherit;
+
+        &:hover {
+            color:$dk-tan;
+        }
+    }
+}
+
+p, 
+ul li, 
+h1, 
+h2, 
+h3, 
+h4 {
+    &.tan {
+        color:$tan !important;
+    }
+    
+    &.dktan {
+        color:$dk-tan !important;
+    }
+
+    &.burgundy {
+        color:$burgundy;
+    }
+    
+    &.white {
+        color:$white;
+    }
+}
+
+h1, 
+h2, 
+h3, 
+h4 {
+    a {
+        color: inherit;
+        font-family: inherit;
+        font-weight: inherit;
+        text-decoration: underline;
+
+        &:hover {
+            color:$blk;
+            text-decoration: underline;
+        }
+    }
+}
+
+h1 {
+    font-family: $serif;
+    font-size: 60px;
+    color: $text-color;
+    margin-bottom: 0 !important;
+    text-transform: none;
+    line-height: 120%;
+    font-weight:400 !important;
+
+    @include respond(desktop-md) {
+        font-size: 50px;
+    }
+
+    @include respond(desktop) {
+        font-size: 42px;
+    }
+
+    @include respond(phone) {
+        font-size: 36px;
+    }
+}
+
+h2 {
+    font-family: $sans;
+    font-size: 40px;
+    color: $text-color;
+    margin-bottom: 20px !important;
+    font-weight:700 !important;
+}
+
+h3 {
+    font-family: $serif;
+    font-size: 32px;
+    margin-bottom: 20px !important;
+    font-weight:400 !important;
+}
+
+h4 {
+    font-family: $sans;
+    font-size: 20px;
+    margin-bottom: 20px !important;
+    font-weight:400 !important;
+}
