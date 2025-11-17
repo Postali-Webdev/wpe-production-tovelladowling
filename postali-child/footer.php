@@ -53,11 +53,13 @@
             <div class="column-full utility" style="flex-wrap:wrap;">
                 <p>
                     &copy; Copyright <?php echo date("Y"); ?> Tovella Dowling, P.C. All Rights Reserved. 
+                    <nav role="navigation">
                     <?php $args = array(
                         'container' => false,
                         'theme_location' => 'utility-nav'
                     );
                     wp_nav_menu( $args ); ?>
+                    </nav>
                 </p>
                 <?php if(is_page_template('front-page.php')) { ?>
                 <div class="spacer-15"></div>
